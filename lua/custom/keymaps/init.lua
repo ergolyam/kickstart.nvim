@@ -12,4 +12,7 @@ return {
       vim.cmd 'bd!'
     end,
   }),
+
+  vim.keymap.set({ 'n', 'v' }, '<C-s>', '<cmd>w<CR>', { desc = 'Save file' }),
+  vim.keymap.set('i', '<C-s>', '<Esc><cmd>w<CR>', { desc = 'Save file' }),
 }
