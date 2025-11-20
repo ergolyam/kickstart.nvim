@@ -169,20 +169,6 @@ vim.o.confirm = true
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
-vim.keymap.set('n', '<leader>lg', function()
-  vim.cmd 'term lazygit'
-  local buf = vim.api.nvim_get_current_buf()
-  vim.api.nvim_buf_set_name(buf, 'lazygit')
-  vim.cmd 'startinsert'
-end, { desc = 'Open lazygit' })
-
-vim.api.nvim_create_autocmd('TermClose', {
-  pattern = 'lazygit',
-  callback = function()
-    vim.cmd 'bd!'
-  end,
-})
-
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -999,6 +985,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   { import = 'custom.plugins' },
+  { import = 'custom.keymaps' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
