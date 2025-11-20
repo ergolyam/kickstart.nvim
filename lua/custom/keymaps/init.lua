@@ -1,6 +1,13 @@
 return {
   vim.keymap.set('n', '<leader>lg', function()
+    local dir = vim.fn.expand '%:p:h'
+    local old_dir = vim.fn.getcwd()
+    if dir == '' then
+      dir = vim.fn.getcwd()
+    end
+    vim.cmd('lcd ' .. vim.fn.fnameescape(dir))
     vim.cmd 'term lazygit'
+    vim.cmd('lcd ' .. vim.fn.fnameescape(old_dir))
     local buf = vim.api.nvim_get_current_buf()
     vim.api.nvim_buf_set_name(buf, 'lazygit')
     vim.cmd 'startinsert'
