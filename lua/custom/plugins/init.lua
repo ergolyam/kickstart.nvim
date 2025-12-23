@@ -96,5 +96,5 @@ return {
       end
     end,
   },
-  { 'akinsho/toggleterm.nvim', version = '*', config = true },
+  { 'akinsho/toggleterm.nvim', version = '*', opts = { open_mapping = [[<c-t>]], shading_factor = 0, shading_ratio = 0 } },
 }
