@@ -412,10 +412,10 @@ require('lazy').setup({
         defaults = {
           mappings = {
             i = {
-              ['<CR>'] = actions.select_tab,
+              ['<CR>'] = actions.select_tab_drop,
             },
             n = {
-              ['<CR>'] = actions.select_tab,
+              ['<CR>'] = actions.select_tab_drop,
             },
           },
         },
