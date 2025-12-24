@@ -54,7 +54,7 @@ return {
     'karb94/neoscroll.nvim',
     config = function()
       require('neoscroll').setup { mappings = {} }
-      neoscroll = require 'neoscroll'
+      local neoscroll = require 'neoscroll'
       local keymap = {
         ['<C-u>'] = function()
           neoscroll.ctrl_u { duration = 250 }
