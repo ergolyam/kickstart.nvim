@@ -436,16 +436,21 @@ require('lazy').setup({
         --  All the info you're looking for is in `:help telescope.setup()`
         --
         defaults = {
+          initial_mode = 'normal',
           mappings = {
             i = {
               ['<CR>'] = actions.select_tab_drop,
             },
             n = {
               ['<CR>'] = actions.select_tab_drop,
+              ['q'] = actions.close,
             },
           },
         },
-        -- pickers = {}
+        pickers = {
+          live_grep = { initial_mode = 'insert' },
+          find_files = { initial_mode = 'insert' },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),

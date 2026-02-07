@@ -25,8 +25,16 @@ return {
     },
     config = function()
       require('telescope').load_extension 'file_browser'
-      vim.keymap.set('n', '<leader>fb', function()
-        require('telescope').extensions.file_browser.file_browser()
+      vim.keymap.set('n', '<leader>e', function()
+        local path = vim.fn.expand '%:p:h'
+        if path == '' then
+          path = vim.fn.getcwd()
+        end
+        require('telescope').extensions.file_browser.file_browser {
+          path = path,
+          cwd = path,
+          hidden = true,
+        }
       end, { desc = 'Telescope File Browser' })
     end,
   },
